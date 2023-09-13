@@ -3,7 +3,7 @@ import dotenv from "dotenv"
 import cors from 'cors';
 import helmet from 'helmet';
 //I,ported and given local names - routes are passed via an array to express app
-import equipmentRouter from './equipment/equipment.routes'
+import router from './routes'
 import logger from './middleware/logger.middleware';
 
 dotenv.config();
@@ -26,7 +26,7 @@ app.use(helmet());
 
 console.log(process.env.MY_SQL_DB_HOST);
 
-app.use('/', equipmentRouter);
+app.use('/', router);
 
 //MySqlConnector.InitializeMySqlConnector();
 if(process.env.NODE_ENV == 'development'){
@@ -42,7 +42,7 @@ app.get('/', (req: Request, res: Response) => {
 });
 
 //adding router middleware
-app.use('/', equipmentRouter);
+app.use('/', router);
 
 
 app.listen(port, () => console.log(`App listening on port ${port}`));
