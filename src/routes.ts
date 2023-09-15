@@ -1,6 +1,8 @@
 import { Router } from 'express';
 import * as ShuttleController from './shuttle/shuttle.controller';
 import * as TripController from './trip/trip.controller';
+import * as bldgController from './bldg/bldg.controller';
+import { readBldg } from './bldg/bldg.dao';
 
 const router = Router();
 
@@ -16,7 +18,7 @@ router
 router
     .route('/shuttle/:id')
     .delete(ShuttleController.deleteShuttle);
-    router 
+router 
     .route('/trip')
     .get(TripController.readTrips);
 router
@@ -28,6 +30,9 @@ router
 router
     .route('/trip/:id')
     .delete(TripController.deleteTrip);
+router 
+    .route('/bldg')
+    .get(bldgController.readBldg);
 
 
 export default router;
