@@ -4,16 +4,17 @@ export const shuttleQueries =
     `SELECT * FROM shuttle`,
 
     readShuttlesByShuttleId : 
-        ` Select * FROM shuttle WHERE id LIKE ?`,
+        ` Select * FROM shuttle WHERE Shuttleid LIKE ?`,
 
     createShuttle : 
-    `INSERT INTO shuttle(type, code, status, lat, long) VALUES (?,?,?,?,?)`,
+    'INSERT INTO shuttle (`type`, `code`, status, lat, lon) VALUES (?,?,?,?,?)',
+
 
     updateShuttle : 
-    `Update shuttle SET type=?, code=? WHERE id=?`,
+    `Update shuttle SET type=?, code=? WHERE Shuttleid=?`,
     
     deleteShuttle : 
-    `DELETE FROM shuttle WHERE id=?`
+    `DELETE FROM shuttle WHERE Shuttleid=?`
 
 
 

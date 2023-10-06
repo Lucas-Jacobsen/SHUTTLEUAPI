@@ -18,14 +18,13 @@ export function readShuttlesByShuttleId(shuttleId: number) : any {
 export const createShuttle =async (shuttle : Shuttle) => 
 {
     console.log("In createShuttle DAO");
-
-    return execute<OkPacket>(shuttleQueries.createShuttle, [shuttle.id, shuttle.type,shuttle.code,  shuttle.status,shuttle.lat, shuttle.long])
+    return execute<OkPacket>(shuttleQueries.createShuttle, [shuttle.type, shuttle.code,  shuttle.status, shuttle.lat, shuttle.lon])
 };
 
 export function updateShuttle(shuttle: Shuttle): OkPacket | PromiseLike<OkPacket> 
 {
     console.log("In updateShuttle DAO");
-    return execute<OkPacket>(shuttleQueries.updateShuttle, [shuttle.id, shuttle.code, shuttle.lat, shuttle.long, shuttle.status, shuttle.type])
+    return execute<OkPacket>(shuttleQueries.updateShuttle, [ shuttle.code, shuttle.lat, shuttle.lon, shuttle.status, shuttle.type])
 
 };
 

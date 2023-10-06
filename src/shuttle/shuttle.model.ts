@@ -1,9 +1,9 @@
 export interface Shuttle
 {
-    id: number,
+    Shuttleid: number,
     type: string,
     code: string, 
     status: string
     lat: number, 
-    long: number
+    lon: number
 }
