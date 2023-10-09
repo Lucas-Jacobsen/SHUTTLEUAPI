@@ -3,6 +3,9 @@ import * as ShuttleController from './shuttle/shuttle.controller';
 import * as TripController from './trip/trip.controller';
 import * as bldgController from './bldg/bldg.controller';
 import { readBldg } from './bldg/bldg.dao';
+import { shuttletripQueries } from './shuttletrip/shuttletrip.queries';
+import * as ShuttleTripController from './shuttletrip/shuttletrip.controller';
+
 
 const router = Router();
 
@@ -33,6 +36,8 @@ router
 router 
     .route('/bldg')
     .get(bldgController.readBldg);
-
+router
+    .route('/shuttletrip')
+    .get(ShuttleTripController.readShuttleTrip);
 
 export default router;
